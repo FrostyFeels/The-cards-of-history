@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class TileStats : MonoBehaviour
 {
-    public Vector2 _ID;
+    public Vector3 _ID;
+    public Material defaultMaterial, material;
 
-
-
-
-
-
-
-
-
-
-
-
+    public void Start()
+    {
+        material = GetComponent<Material>();
+    }
 }

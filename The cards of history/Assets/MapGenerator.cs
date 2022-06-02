@@ -1,90 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MapGenerator : MonoBehaviour
 {
-    public SOmap map;
+    public List<SOmap> map = new List<SOmap>();
+
     public GameObject tile;
     public Material mat;
+    public GameObject mapHolder;
+    [SerializeField] private MapStats mapStats;
 
-    public List<MapData> mapArray;
+    public int[,,] _3DHeightMap;
 
-    public GameObject[][] jaggedMapArray;
+    
 
     public void Start()
     {
-        jaggedMapArray = new GameObject[map.gridSizeY][];
 
-        for (int i = 0; i < jaggedMapArray.Length; i++)
+        for (int i = 0; i < map.Count; i++)
         {
-            jaggedMapArray[i] = new GameObject[map.gridSizeX];
+            map[i].gridArray = new GameObject[map[i].gridSizeX, map[i].gridSizeY];
+            _3DHeightMap = new int[map[0].gridSizeX, map.Count, map[0].gridSizeY];
         }
+        
         ConstructArea();
     }
 
-    public void Awake()
-    {
-        mapArray = map.map;
-    }
     public void ConstructArea()
     {
-        GameObject[] quickArray = new GameObject[map.gridSizeX];
-   
-        int yLevel = 0;
-        int count = 0;
-        foreach (MapData _data in mapArray)
+        for (int i = 0; i < map.Count; i++)
         {
-            GameObject _tile = Instantiate(tile);
-            _tile.transform.position = new Vector3(_data.xPos, 0, _data.yPos) * map.tileSize;
-            _tile.transform.SetParent(transform);
-
-
-            _tile.GetComponent<TileStats>()._ID = new Vector2(_data.xPos, _data.yPos);
-
-            Vector2 vertexLocation = new Vector2(_data.xPos, _data.yPos);
-
-            if (map.midPoint == vertexLocation)
+            foreach (MapData _data in map[i].map)
             {
-                _tile.GetComponent<MeshRenderer>().material = mat;
-            }
-            if (!_data.selected)
-            {
-                _tile.SetActive(false);
-            }
+                GameObject _tile = Instantiate(tile);
 
 
-            if (count == map.gridSizeX)
-            {
+                _tile.transform.position = new Vector3(_data.zPos, i, _data.xPos) * map[i].tileSize;
+                _tile.transform.SetParent(mapHolder.transform);
 
-                FillJaggedArray(yLevel, quickArray);
-                yLevel = _data.xPos;
-            
-                count = 0;
+                _tile.GetComponent<TileStats>()._ID = new Vector3(_data.zPos, i ,_data.xPos);
 
+                mapStats.tiles.Add(_tile);
 
-                for (int i = 0; i < quickArray.Length; i++)
+                Vector2 vertexLocation = new Vector3(_data.xPos,_data.zPos);
+
+                if (map[i].midPoint == vertexLocation)
                 {
-                    quickArray[i] = null;
+                    _tile.GetComponent<MeshRenderer>().material = mat;
+                }
+           
+                if (!_data.selected)
+                {
+                    _tile.SetActive(false);
                 }
             }
-
-            quickArray[count] = _tile;
-            count++;
-
-
         }
-        transform.Rotate(0, 90, 0);
-    }
 
-    public void FillJaggedArray(int yLevel, GameObject[] array)
-    {
-        for (int i = 0; i < array.Length; i++)
-        {
-            jaggedMapArray[yLevel][i] = array[i];
-        }
-    }
+        mapStats.map = map;
+        mapStats.SetStats();
 
+
+    }
 
 
 }
+

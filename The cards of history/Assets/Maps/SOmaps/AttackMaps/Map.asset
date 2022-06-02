@@ -12,83 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee2d46fba9248949a22c29bd8099c18, type: 3}
   m_Name: Map
   m_EditorClassIdentifier: 
-  gridSizeX: 5
+  gridSizeX: 1
   gridSizeY: 5
   tileSize: 1
-  midPoint: {x: 2, y: 2}
+  midPoint: {x: 0, y: 4}
   map:
   - selected: 1
     xPos: 0
-    yPos: 0
-  - selected: 0
-    xPos: 0
-    yPos: 1
-  - selected: 0
-    xPos: 0
-    yPos: 2
-  - selected: 0
-    xPos: 0
-    yPos: 3
-  - selected: 0
-    xPos: 0
-    yPos: 4
-  - selected: 0
+    zPos: 0
+    height: 0
+  - selected: 1
     xPos: 1
-    yPos: 0
-  - selected: 0
-    xPos: 1
-    yPos: 1
-  - selected: 0
-    xPos: 1
-    yPos: 2
-  - selected: 0
-    xPos: 1
-    yPos: 3
-  - selected: 0
-    xPos: 1
-    yPos: 4
-  - selected: 0
+    zPos: 0
+    height: 0
+  - selected: 1
     xPos: 2
-    yPos: 0
-  - selected: 0
-    xPos: 2
-    yPos: 1
-  - selected: 0
-    xPos: 2
-    yPos: 2
-  - selected: 0
-    xPos: 2
-    yPos: 3
-  - selected: 0
-    xPos: 2
-    yPos: 4
-  - selected: 0
+    zPos: 0
+    height: 0
+  - selected: 1
     xPos: 3
-    yPos: 0
-  - selected: 0
-    xPos: 3
-    yPos: 1
-  - selected: 0
-    xPos: 3
-    yPos: 2
-  - selected: 0
-    xPos: 3
-    yPos: 3
-  - selected: 0
-    xPos: 3
-    yPos: 4
-  - selected: 0
+    zPos: 0
+    height: 0
+  - selected: 1
     xPos: 4
-    yPos: 0
-  - selected: 0
-    xPos: 4
-    yPos: 1
-  - selected: 0
-    xPos: 4
-    yPos: 2
-  - selected: 0
-    xPos: 4
-    yPos: 3
-  - selected: 0
-    xPos: 4
-    yPos: 4
+    zPos: 0
+    height: 0

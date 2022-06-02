@@ -12,6 +12,8 @@ public class SOmap : ScriptableObject
     public int tileSize;
     public Vector2 midPoint;
     public List<MapData> map = new List<MapData>();
+    public GameObject[,] gridArray;
+    
 }
 
 [Serializable]
@@ -19,5 +21,5 @@ public class MapData
 {
     [SerializeField]
     public bool selected;
-    public int xPos, yPos;
+    public int xPos, zPos, height;
 }
