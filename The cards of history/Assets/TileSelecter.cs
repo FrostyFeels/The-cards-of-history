@@ -24,7 +24,7 @@ public class TileSelecter : MonoBehaviour
     public Mode mode;
     public void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && mode != Mode.Bulding)
         {
             SelectObject();
         }
@@ -92,12 +92,8 @@ public class TileSelecter : MonoBehaviour
                         return;
                 }
 
-
-                Debug.Log("OwO");
-
                 return;
             }
-            Debug.Log("UwU");
 
             if (selectionRenderer != null)
             {

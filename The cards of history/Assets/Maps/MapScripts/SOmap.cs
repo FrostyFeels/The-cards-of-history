@@ -22,4 +22,5 @@ public class MapData
     [SerializeField]
     public bool selected;
     public int xPos, zPos, height;
+    public Material currentMat;
 }
