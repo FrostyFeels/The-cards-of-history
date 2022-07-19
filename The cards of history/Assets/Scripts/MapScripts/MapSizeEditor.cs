@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
+
 
 
 
@@ -57,14 +60,25 @@ public class MapSizeEditor : MonoBehaviour
 
 
 #if UNITY_EDITOR
-        map.name = "Floor level" + gen.maplevel;
-        AssetDatabase.CreateAsset(map, "Assets/Maps/" + gen.maplevel);
+        if (AssetDatabase.IsValidFolder("Assets/Map/" + gen.maplevel))
+        {
+            
+        }
+        else
+        {
+            Debug.Log("Assets/Map/" + gen.maplevel);
+            AssetDatabase.CreateFolder("Assets/Map", gen.maplevel);
+            
+        }
+        map.name =  gen.maplevel + "." + (gen.map.Count);
+
+        AssetDatabase.CreateAsset(map, "Assets/Map/" + gen.maplevel + "/" + map.name + ".asset");
 
         EditorUtility.SetDirty(map);
-        EditorUtility.SetDirty(gen.gameObject);
+        EditorUtility.SetDirty(gen);
 
         AssetDatabase.SaveAssets();
-       
+        AssetDatabase.Refresh();     
 #endif
     }
     public void DecreaseMap()

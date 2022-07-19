@@ -10,41 +10,46 @@ public class SizeInceaseButton : MonoBehaviour
     public bool up, down, left, right;
     public float tileSize = 0.2f;
 
-    private void Awake()
+    private void start()
     {
         gen = GameObject.Find("MapGenerator").GetComponent<MapGen>();
+        tileSize = (float)gen.map[0].tileSize / 5;
+        Debug.Log(tileSize);
+        Debug.Log((float)gen.map[0].tileSize / 5);
     }
 
     public void setPositions()
     {
-        if(gen == null)
+        if (gen == null)
         {
             gen = GameObject.Find("MapGenerator").GetComponent<MapGen>();
         }
-        
+
+        tileSize = (float)gen.map[0].tileSize / 5;
+
 
         if (up)
         {
             transform.localScale = new Vector2(gen.map[gen.currentMapLevel].gridSizeX * tileSize, transform.localScale.y);
-            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX - 1) * .5f, 0, 1.5f);
+            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX - 1) * .5f, 0, 1.5f) * gen.map[0].tileSize;
         }
         if (down)
         {
             transform.localScale = new Vector2(gen.map[0].gridSizeX * tileSize, transform.localScale.y);
-            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX - 1) * .5f, 0, (-gen.map[gen.currentMapLevel].gridSizeY) - .5f);
+            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX - 1) * .5f, 0, (-gen.map[gen.currentMapLevel].gridSizeY) - .5f) * gen.map[0].tileSize;
         }
 
         if (right)
         {
-            
+
             transform.localScale = new Vector2(transform.localScale.x, gen.map[gen.currentMapLevel].gridSizeY * tileSize);
-            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX) + .5f, 0, -(gen.map[gen.currentMapLevel].gridSizeY - 1) * .5f);
+            transform.position = new Vector3((gen.map[gen.currentMapLevel].gridSizeX) + .5f, 0, -(gen.map[gen.currentMapLevel].gridSizeY - 1) * .5f) * gen.map[0].tileSize;
         }
         if (left)
         {
 
             transform.localScale = new Vector2(transform.localScale.x, gen.map[gen.currentMapLevel].gridSizeY * tileSize);
-            transform.position = new Vector3(-1.5f, 0, -(gen.map[gen.currentMapLevel].gridSizeY - 1) * .5f);
+            transform.position = new Vector3(-1.5f, 0, -(gen.map[gen.currentMapLevel].gridSizeY - 1) * .5f) * gen.map[0].tileSize;
         }
     }
 

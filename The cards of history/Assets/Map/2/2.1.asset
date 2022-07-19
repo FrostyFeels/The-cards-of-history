@@ -1,0 +1,2041 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb90fea485f9bff4ba083bb818203fb8, type: 3}
+  m_Name: 2.1
+  m_EditorClassIdentifier: 
+  gridSizeX: 17
+  gridSizeY: 17
+  tileSize: 2
+  map:
+  - _selected: 0
+    xPos: 0
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 0
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 1
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 2
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 3
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 4
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 5
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 6
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 7
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 8
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 9
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 10
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 11
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 12
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 3
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 4
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 5
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 6
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 7
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 8
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 9
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 10
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 11
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 12
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 1
+    xPos: 13
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 13
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 14
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 0
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 15
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 0
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 1
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 2
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 3
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 4
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 5
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 6
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 7
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 8
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 9
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 10
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 11
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 12
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 13
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 14
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 15
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0
+  - _selected: 0
+    xPos: 16
+    zPos: 16
+    height: 0
+    _materialID: White
+    _edgeTile: 1
+    _highLighted: 0

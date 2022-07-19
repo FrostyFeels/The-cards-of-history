@@ -16,7 +16,9 @@ public class MapStats : MonoBehaviour
     {
         if(map.Count != 0)
         {
+            mapData = new MapData[map[0].gridSizeX, map.Count, map[0].gridSizeY];
             ListTo3DArray();
+            
         }
     }
 
@@ -26,6 +28,7 @@ public class MapStats : MonoBehaviour
         {
             foreach (MapData _data in map[i].map)
             {
+                Debug.Log(_data.xPos + " :x " + i + " :i " + _data.zPos + " :z");
                 mapData[_data.xPos, i, _data.zPos] = _data;
             }
         }

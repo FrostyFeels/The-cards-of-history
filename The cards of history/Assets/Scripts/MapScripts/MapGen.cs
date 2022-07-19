@@ -2,10 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+
+
 public class MapGen : MonoBehaviour, ISaveable
 {
     [Header("Maps")]
-    public List<SOmap> map = new List<SOmap>();
+    [SerializeField] public List<SOmap> map = new List<SOmap>();
 
     [Header("Prefab")]
     [SerializeField] private GameObject tile;
@@ -52,11 +58,22 @@ public class MapGen : MonoBehaviour, ISaveable
 
     public void Awake()
     {
-        if(map.Count > 0) 
+        string[] guids = AssetDatabase.FindAssets("t:SOmap", new[] { "Assets/Map/" + maplevel });
+
+        foreach (string _guid in guids)
         {
-            SetArrays();
-            return;
+            string _path = AssetDatabase.GUIDToAssetPath(_guid);
+            SOmap _map = AssetDatabase.LoadAssetAtPath(_path, typeof(SOmap)) as SOmap;
+            map.Add(_map);
+
+            EditorUtility.SetDirty(_map);
         }
+
+        SetArrays();
+        return;
+
+
+
 
 
         if (SceneSwap._instance._NewGame)
