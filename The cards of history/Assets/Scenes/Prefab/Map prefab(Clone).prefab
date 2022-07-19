@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7082375611826055758}
   - component: {fileID: 4620463751298682535}
   - component: {fileID: 2189909333137149239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 5877586303232645768}
   - component: {fileID: 2520616493900098832}
   - component: {fileID: 8620123365146539681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Map prefab(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc684c0def326224ca7f8f29f008312c, type: 2}
+  - {fileID: 2100000, guid: 22b97bc02c8c5ba41a3336acc9c35e6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

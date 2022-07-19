@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackTest : MonoBehaviour
 {
-    [SerializeField] private TileSelecter tileSelecter;
 
     [SerializeField] private SOmap attackMap;
     [SerializeField] private List<SOmap> levelMap;
@@ -16,11 +15,10 @@ public class AttackTest : MonoBehaviour
 
     public int maxHeighDiff;
     public bool airAbove;
-   
+
 
     void Start()
     {
-        tileSelecter = GetComponent<TileSelecter>();
         //maps = mapGenerator.maps;
 
 
@@ -31,11 +29,12 @@ public class AttackTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             levelMap = stats.map;
-            attack();
+            //attack();
         }
     }
+}
 
-    public void attack()
+    /*public void attack()
     {
 
         for (int i = 0; i < stats.attackSpots.Count; i++)
@@ -49,7 +48,7 @@ public class AttackTest : MonoBehaviour
 
         foreach (MapData _data in attackMap.map)
         {
-            if(_data.selected)
+            if(_data._selected)
             {
                 Vector2 _START = new Vector3(_data.zPos, _data.xPos); //0,0 
                 Vector2 _REALSTART = _START - attackMap.midPoint;
@@ -80,11 +79,11 @@ public class AttackTest : MonoBehaviour
             }
         }
 
-    }
+    }*/
 
 
 
-    public int setHeight(int height, Vector3 _tile, Vector2 _FINALPOSITION)
+/*    public int setHeight(int height, Vector3 _tile, Vector2 _FINALPOSITION)
     {
         if (air)
         {
@@ -110,8 +109,4 @@ public class AttackTest : MonoBehaviour
 
         return height;
     }
-
-
-
-
-}
+}*/
