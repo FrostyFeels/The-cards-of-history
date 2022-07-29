@@ -58,7 +58,7 @@ public class MapPlayerSelect : MonoBehaviour
                 playerSpots[characterIndex - 1].gameObject.GetComponentInChildren<TextMeshPro>().enabled = false;
 
                 TileStats tile = playerSpots[characterIndex - 1];
-                MaterialManager.getMaterial(playerSpots[characterIndex - 1].gameObject.GetComponent<Renderer>(), mapGen.map[(int)tile._ID.y].map[(int)tile._ID.x + ((int)tile._ID.z * mapGen.map[(int)tile._ID.y].gridSizeX)]._materialID);
+                MaterialManager.SetMaterial(playerSpots[characterIndex - 1].gameObject.GetComponent<Renderer>(), mapGen.map[(int)tile._ID.y].map[(int)tile._ID.x + ((int)tile._ID.z * mapGen.map[(int)tile._ID.y].gridSizeX)]._materialID);
 
 
             }

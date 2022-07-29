@@ -6,7 +6,7 @@ using System;
 public class MaterialManager : MonoBehaviour
 {
 
-    public static void getMaterial(Renderer render, string name)
+    public static void SetMaterial(Renderer render, string name)
     {
         render.material = Resources.Load<Material>("MapMaterials/" + name);
     }

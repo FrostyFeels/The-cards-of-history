@@ -17,20 +17,36 @@ public class MapStats : MonoBehaviour
         if(map.Count != 0)
         {
             mapData = new MapData[map[0].gridSizeX, map.Count, map[0].gridSizeY];
-            ListTo3DArray();
-            
+            ListTo3DArray();        
         }
     }
 
     public void ListTo3DArray()
     {
+        TileStats[] _Tiles = GetComponentsInChildren<TileStats>();
         for (int i = 0; i < map.Count; i++)
         {
             foreach (MapData _data in map[i].map)
             {
-                Debug.Log(_data.xPos + " :x " + i + " :i " + _data.zPos + " :z");
-                mapData[_data.xPos, i, _data.zPos] = _data;
+                _data._stoodOn = false;
+                mapData[_data.xPos, i, _data.zPos] = _data;    
+                
+                if(_data._selected)
+                {
+                    
+                }
             }
+        }
+
+        foreach (TileStats _Tile in _Tiles)
+        {
+            MapData _data = mapData[(int)_Tile._ID.x, (int)_Tile._ID.y, (int)_Tile._ID.z];
+
+            _data.SetGameobject(_Tile.gameObject);
+            _data.SetRender(_Tile.gameObject.GetComponent<Renderer>());
+
+            if (!_data._selected)
+                Destroy(_data.GetGameobject());
         }
     }
 }

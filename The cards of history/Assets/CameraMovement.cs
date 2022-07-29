@@ -15,24 +15,19 @@ public class CameraMovement : MonoBehaviour
     public float speed;
 
     public bool canMove;
+    public bool isMoving;
 
     [SerializeField] private MapStats map;
+
+    public CharacterPathLogic pathlogic;
+
+    
 
     // Update is called once per frame
 
     public void Start()
     {
         target.transform.position = new Vector3(map.map[0].gridSizeX, 0, -map.map[0].gridSizeY);
-        previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
-        Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
-
-        cam.transform.position = target.transform.position;
-
-        cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
-        cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
-        cam.transform.Translate(new Vector3(0, 0, distanceFromCamera));
-
-        previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
     }
     void Update()
     {
@@ -42,7 +37,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 direction = (transform.position - camPosition).normalized;
 
 
-        if(canMove)
+        if(canMove || !pathlogic.enabled)
         {
             doCameraThingy();
         }
@@ -51,8 +46,13 @@ public class CameraMovement : MonoBehaviour
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        
-        
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMoving = false;
+        }
+
+
+
 
 
         if (Input.GetKey(KeyCode.A))
@@ -75,29 +75,69 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    public bool CalculateRotation()
+    {
+        Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+
+        Transform fakeCam = new GameObject().transform;
+        fakeCam.rotation = cam.transform.rotation;
+        fakeCam.position = cam.transform.position;
+        fakeCam.position = target.transform.position;
+
+       
+        fakeCam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
+        fakeCam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
+        fakeCam.transform.Translate(new Vector3(0, 0, distanceFromCamera));
+
+
+
+        if (fakeCam.eulerAngles.x > 15 && fakeCam.eulerAngles.x < 75)
+        {
+            return true;
+        }
+        else
+        {
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+            return false;
+        }
+    } 
+
 
     public void doCameraThingy()
     {
 
+        distanceFromCamera += Input.mouseScrollDelta.y;
+
         if (Input.GetMouseButtonDown(0))
         {
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+            isMoving = true;
         }
+
+
+        if (!CalculateRotation())
+            return;
 
         if (Input.GetMouseButton(0))
         {
+
             Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
 
             cam.transform.position = target.transform.position;
 
-            cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
+
+           
             cam.transform.Rotate(new Vector3(0, 1, 0), -direction.x * 180, Space.World);
+            cam.transform.Rotate(new Vector3(1, 0, 0), direction.y * 180);
             cam.transform.Translate(new Vector3(0, 0, distanceFromCamera));
 
-            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
 
+
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
 
-        distanceFromCamera += Input.mouseScrollDelta.y;
+
+
+   
     }
 }

@@ -58,6 +58,7 @@ public class MapGen : MonoBehaviour, ISaveable
 
     public void Awake()
     {
+#if UNITY_EDITOR
         string[] guids = AssetDatabase.FindAssets("t:SOmap", new[] { "Assets/Map/" + maplevel });
 
         foreach (string _guid in guids)
@@ -68,6 +69,7 @@ public class MapGen : MonoBehaviour, ISaveable
 
             EditorUtility.SetDirty(_map);
         }
+#endif
 
         SetArrays();
         return;
@@ -221,7 +223,6 @@ public class MapGen : MonoBehaviour, ISaveable
         }
     }
 
-
     //I hate this fucking function I want to improve but its probally not possible
     public void changeMapLevel(bool up)
     {
@@ -269,7 +270,7 @@ public class MapGen : MonoBehaviour, ISaveable
                     }
                     else if(level < currentMapLevel && mapData[j, level, i]._selected)
                     {
-                        MaterialManager.getMaterial(mapData[j, level, i].GetRender(), otherLayerMat.name);
+                        MaterialManager.SetMaterial(mapData[j, level, i].GetRender(), otherLayerMat.name);
                     }
 
 
@@ -278,13 +279,13 @@ public class MapGen : MonoBehaviour, ISaveable
                     {
                         mapData[j, currentMapLevel, i].GetGameobject().SetActive(true);
                         //mapData[j, currentMapLevel, i]._materialID = filledMat.name;
-                        MaterialManager.getMaterial(mapData[j, currentMapLevel, i].GetRender(), filledMat.name);
+                        MaterialManager.SetMaterial(mapData[j, currentMapLevel, i].GetRender(), filledMat.name);
                     }
                     else if(!mapData[j, currentMapLevel, i]._selected)
                     {
                         mapData[j, currentMapLevel, i].GetGameobject().SetActive(true);
                         //mapData[j, currentMapLevel, i]._materialID = nonFilledMat.name;
-                        MaterialManager.getMaterial(mapData[j, currentMapLevel, i].GetRender(), nonFilledMat.name);
+                        MaterialManager.SetMaterial(mapData[j, currentMapLevel, i].GetRender(), nonFilledMat.name);
                     }
 
 

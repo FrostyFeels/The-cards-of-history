@@ -34,52 +34,52 @@ public class AttackTest : MonoBehaviour
     }
 }
 
-    /*public void attack()
+/*public void attack()
+{
+
+    for (int i = 0; i < stats.attackSpots.Count; i++)
     {
+        stats.attackSpots[i].GetComponent<Renderer>().material = stats.attackSpots[i].defaultMaterial;
+    }
 
-        for (int i = 0; i < stats.attackSpots.Count; i++)
+    Vector3 _CurrentTile = GetComponent<playerMovement>().currentLocation;
+    Vector2 start = new Vector2(_CurrentTile.z, _CurrentTile.x);
+
+
+    foreach (MapData _data in attackMap.map)
+    {
+        if (_data._selected)
         {
-            stats.attackSpots[i].GetComponent<Renderer>().material = stats.attackSpots[i].defaultMaterial;
-        }
+            Vector2 _START = new Vector3(_data.zPos, _data.xPos); //0,0 
+            Vector2 _REALSTART = _START - attackMap.midPoint;
+            Vector2 _FINALPOSITION = start + _REALSTART;
 
-        Vector3 _CurrentTile = GetComponent<playerMovement>().currentLocation;
-        Vector2 start = new Vector2(_CurrentTile.z, _CurrentTile.x);
+            Debug.Log(_FINALPOSITION);
 
-
-        foreach (MapData _data in attackMap.map)
-        {
-            if(_data._selected)
+            if (_FINALPOSITION.x < 0 || _FINALPOSITION.x >= levelMap[0].gridArray.GetLength(0) || _FINALPOSITION.y < 0 || _FINALPOSITION.y >= levelMap[0].gridArray.GetLength(0)) { }
+            else
             {
-                Vector2 _START = new Vector3(_data.zPos, _data.xPos); //0,0 
-                Vector2 _REALSTART = _START - attackMap.midPoint;
-                Vector2 _FINALPOSITION = start + _REALSTART;
-
-                Debug.Log(_FINALPOSITION);
-           
-                if (_FINALPOSITION.x < 0 || _FINALPOSITION.x >= levelMap[0].gridArray.GetLength(0) || _FINALPOSITION.y < 0 || _FINALPOSITION.y >= levelMap[0].gridArray.GetLength(0)) { }
-                else
-                {                
-                    int height = 0;
-                    height = setHeight(height, _CurrentTile, _FINALPOSITION);
+                int height = 0;
+                height = setHeight(height, _CurrentTile, _FINALPOSITION);
 
 
-                    Renderer renderer = levelMap[height].gridArray[(int)_FINALPOSITION.x,(int)_FINALPOSITION.y].GetComponent<Renderer>();
+                Renderer renderer = levelMap[height].gridArray[(int)_FINALPOSITION.x, (int)_FINALPOSITION.y].GetComponent<Renderer>();
 
-                    if (renderer != null)
-                    {
-                        renderer.material = previewMaterial;
-                    }
-
-                    TileStats _tile = levelMap[height].gridArray[(int)_FINALPOSITION.x, (int)_FINALPOSITION.y].GetComponent<TileStats>();
-
-                    stats.attackSpots.Add(_tile); 
-                    //tileSelecter.selectedTile = null;
+                if (renderer != null)
+                {
+                    renderer.material = previewMaterial;
                 }
 
-            }
-        }
+                TileStats _tile = levelMap[height].gridArray[(int)_FINALPOSITION.x, (int)_FINALPOSITION.y].GetComponent<TileStats>();
 
-    }*/
+                stats.attackSpots.Add(_tile);
+                //tileSelecter.selectedTile = null;
+            }
+
+        }
+    }
+
+}*/
 
 
 
