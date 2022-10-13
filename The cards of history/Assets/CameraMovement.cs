@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
 
     public CharacterPathLogic pathlogic;
 
-    
+    public Transform rotateobject;
 
     // Update is called once per frame
 
@@ -79,7 +79,10 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
 
-        Transform fakeCam = new GameObject().transform;
+        if(rotateobject == null) 
+            rotateobject = new GameObject().transform;
+
+        Transform fakeCam = rotateobject;
         fakeCam.rotation = cam.transform.rotation;
         fakeCam.position = cam.transform.position;
         fakeCam.position = target.transform.position;
@@ -115,8 +118,8 @@ public class CameraMovement : MonoBehaviour
         }
 
 
-        if (!CalculateRotation())
-            return;
+       /* if (!CalculateRotation())
+            return;*/
 
         if (Input.GetMouseButton(0))
         {

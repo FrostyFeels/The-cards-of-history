@@ -10,6 +10,7 @@ public class MapStats : MonoBehaviour
 
 
     public TileStats[] playerSpots = new TileStats[5];
+    public TileStats[] enemySpots = new TileStats[5];
 
 
     public void Start()

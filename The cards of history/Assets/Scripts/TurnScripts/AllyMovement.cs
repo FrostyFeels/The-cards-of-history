@@ -5,9 +5,11 @@ using UnityEngine;
 public class AllyMovement : MonoBehaviour
 {
     [SerializeField] private TurnManager turnManager;
+    [SerializeField] private MapStats stats;
 
-    public IEnumerator StartPath(List<Vector3> path, int nodeIndex, GameObject character, int tilesize, int turnCount)
+    public IEnumerator StartPath(List<Vector3> path, int nodeIndex, GameObject character, int turnCount)
     {
+        int tilesize = stats.map[0].tileSize;
         yield return StartCoroutine(Move(path, nodeIndex, character, tilesize));
         turnCount++;
         if (turnManager.turns.Count > turnCount)

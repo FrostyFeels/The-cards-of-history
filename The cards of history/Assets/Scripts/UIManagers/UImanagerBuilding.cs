@@ -26,6 +26,9 @@ public class UImanagerBuilding : MonoBehaviour
     [Header("Save")]
     [SerializeField] private GameObject _SaveCanvas;
 
+    [Header("Spawns")]
+    [SerializeField] private GameObject _SpawnCanvas;
+
 
     [SerializeField] private List<GameObject> _ActiveObjects;
 
@@ -69,6 +72,7 @@ public class UImanagerBuilding : MonoBehaviour
                 break;
             case 3:
                 gen.mode = MapGen.Mode._SETSPAWNS;
+                _ActiveObjects.Add(_SpawnCanvas);
                 gen.mapPlayerSelect.enabled = true;
                 break;
             case 4:
@@ -156,18 +160,14 @@ public class UImanagerBuilding : MonoBehaviour
         resetYes.onClick.RemoveAllListeners();
         resetYes.onClick.AddListener(gen.mapEditor.resetFloor);
     }
-
     public void UIToggle(GameObject button)
     {
         button.SetActive(false);
     }
-
     public void EnableMenu()
     {
         _DrawMenu.SetActive(!_DrawMenu.activeSelf);
     }
-
-
     public void SetMapChangeMode(bool increase)
     {
         if(increase)
@@ -179,6 +179,6 @@ public class UImanagerBuilding : MonoBehaviour
             gen.mapsizeEditor.increase = false;
         }
     }
-    
+
 
 }

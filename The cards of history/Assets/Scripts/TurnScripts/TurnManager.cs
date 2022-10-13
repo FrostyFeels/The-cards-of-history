@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class TurnManager : MonoBehaviour
 {
     public AllyMovement movement;
-    public AllyAttack attack;
     public List<Turn> turns = new List<Turn>();
     public GameObject contentUI;
     public GameObject _UIElemant;
@@ -25,6 +24,7 @@ public class TurnManager : MonoBehaviour
     
     public void AddUIElement()
     {
+        Debug.Log("owO");
         GameObject turn = Instantiate(_UIElemant, contentUI.transform);
         turn.GetComponentInChildren<TextMeshProUGUI>().text = turns.Count.ToString();
 
@@ -78,7 +78,7 @@ public class MoveTurn : Turn
 
     public override void DoTurn(int turn)
     {
-        manager.movement.StartCoroutine(manager.movement.StartPath(path, 1, character, stats.map[0].tileSize, turn));
+        manager.movement.StartCoroutine(manager.movement.StartPath(path, 1, character, turn));
     }
 }
 
@@ -101,6 +101,5 @@ public class AttackTurn : Turn
 
     public override void DoTurn(int turn)
     {
-        manager.attack.Attack(characterInfo, dir, turn);
     }
 }

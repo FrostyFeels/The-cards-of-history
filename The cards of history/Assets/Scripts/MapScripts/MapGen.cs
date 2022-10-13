@@ -21,6 +21,7 @@ public class MapGen : MonoBehaviour, ISaveable
     public Material filledMat;
     public Material nonFilledMat;
     public Material playerSpotMat;
+    public Material enemySpotMat;
     public Material otherLayerMat;
 
     [Header("Mode")]
@@ -28,7 +29,7 @@ public class MapGen : MonoBehaviour, ISaveable
 
     [Header("SubMapEditor")]
     public MapEditor mapEditor;
-    public MapPlayerSelect mapPlayerSelect;
+    public MapSpawnSelect mapPlayerSelect;
     public MapSizeEditor mapsizeEditor;
     public MapStats stats;
 
@@ -178,7 +179,7 @@ public class MapGen : MonoBehaviour, ISaveable
         
         EnableBuilding();
         mapEditor.edgeTileRenderer.Clear();
-        mapEditor.drawOutLine();
+        mapEditor.DrawOutline();
     }
 
     //This constructs the map gives the the positions
@@ -190,6 +191,7 @@ public class MapGen : MonoBehaviour, ISaveable
         {         
             foreach (MapData _data in map[i].map)
             {
+                Debug.Log("OwO");
                 GameObject _tile = Instantiate(tile);
 
                 _tile.transform.position = new Vector3(_data.xPos, i, -_data.zPos) * map[i].tileSize;
@@ -249,7 +251,7 @@ public class MapGen : MonoBehaviour, ISaveable
         }
 
         mapEditor.edgeTileRenderer.Clear();
-        mapEditor.drawOutLine();
+        mapEditor.DrawOutline();
 
     }
 
@@ -341,6 +343,7 @@ public class MapGen : MonoBehaviour, ISaveable
     public void SendMapStats()
     {
         stats.playerSpots = mapPlayerSelect.playerSpots;
+        stats.enemySpots = mapPlayerSelect.enemySpots;
         stats.map = map;
     }
 

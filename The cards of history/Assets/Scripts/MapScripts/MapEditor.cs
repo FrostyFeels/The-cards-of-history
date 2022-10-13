@@ -54,7 +54,7 @@ public class MapEditor : MonoBehaviour
     public FillMode mode;
     public void Start()
     {
-        drawOutLine();
+        DrawOutline();
     }
 
     private void Update()
@@ -69,7 +69,7 @@ public class MapEditor : MonoBehaviour
 
         if (Input.GetMouseButton(0) && !_ChoosingHeight)
         {
-            MapHolderSelecter();
+            MapSelecter();
         }
         else if (Input.GetMouseButton(0) && _ChoosingHeight)
         {
@@ -84,7 +84,7 @@ public class MapEditor : MonoBehaviour
             endTile = -Vector3.one;
             if (!_3D)
             {
-                emptyList();
+                EmptySelectedTiles();
             }
             else if (building && !_ChoosingHeight && selected.Count > 0)
             {
@@ -99,103 +99,74 @@ public class MapEditor : MonoBehaviour
             camera2.canMove = false;
         }
 
-        VisualizeTiles();
+        HighlightTiles();
     }
 
-
-    //This is what calls the builder method
-    public void MapHolderSelecter()
+    public void MapSelecter()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, buildRange, tiles))
+        TileStats tile = BuildRefrences.OnTileSelect(buildRange, tiles);
+
+        if (tile == null)
+            return;
+        
+        if (endTile == tile._ID || camera2.isMoving)
+            return;
+
+        building = true;
+
+        if (gen.mode == MapGen.Mode._BUILDING)
+            ResetBuilding();
+        if (gen.mode == MapGen.Mode._DRAWING)
+            ResetDrawing();
+
+
+        if (!firstTile)
         {
-            if (!camera2.isMoving)
-            {
-                building = true;
-            }
-
-
-            if (endTile == hit.collider.GetComponent<TileStats>()._ID || camera2.isMoving)
-                return;
-
-            if (gen.mode == MapGen.Mode._BUILDING)
-                cancelBuild();
-            if (gen.mode == MapGen.Mode._DRAWING)
-                CancelDraw();
-
-
-        if(!firstTile)
-            {
-                firstTile = true;
-                startTile = hit.collider.GetComponent<TileStats>()._ID;
-            }
-
-            endTile = hit.collider.GetComponent<TileStats>()._ID;
-            BuildMapDrag();
+            firstTile = true;
+            startTile = tile._ID;
         }
 
+        endTile = tile._ID;
+        MapBuilder();
     }
-
-
-    //THIS IS THE REAL BUILDING METHOD FOR NOW
-    public void BuildMapDrag()
+    public void MapBuilder()
     {
-        Vector3 realStart;
-        Vector3 realEnd;
+        Vector3[] startEnd = BuildRefrences.GetStart(startTile, endTile);
 
-        if (startTile.x > endTile.x)
-        {
-            realStart.x = endTile.x;
-            realEnd.x = startTile.x;
-        }
-        else
-        {
-            realStart.x = startTile.x;
-            realEnd.x = endTile.x;
-        }
+        Vector3 realStart = startEnd[0];
+        Vector3 realEnd = startEnd[1];
 
-        if (startTile.z > endTile.z)
-        {
-            realStart.z = endTile.z;
-            realEnd.z = startTile.z;
-        }
-        else
-        {
-            realStart.z = startTile.z;
-            realEnd.z = endTile.z;
-        }
 
-        if (startTile.y > endTile.y)
-        {
-            realStart.y = endTile.y;
-            realEnd.y = startTile.y;
-        }
-        else
-        {
-            realStart.y = startTile.y;
-            realEnd.y = endTile.y;
-        }
-
-        if(gen.mode == MapGen.Mode._BUILDING)
+        if (gen.mode == MapGen.Mode._BUILDING)
         {
             switch (mode)
             {
                 case FillMode._NOFILL:
-                    NoFill(realStart, realEnd);
+                    //NoFill(realStart, realEnd);
+                    BuildLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, gen.currentMapLevel), false);
                     break;
                 case FillMode._FILLGROUND:
-                    FillGround(realStart, realEnd);
+                    BuildLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, gen.currentMapLevel), false);
+                    BuildLogic(BuildRefrences.GetMiddle(realStart, realEnd, gen.mapData, gen.currentMapLevel), false);
+                    //FillGround(realStart, realEnd);
                     break;
                 case FillMode._FILLWALLS:
-                    FillWalls(realStart, realEnd);
+                    BuildLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, gen.currentMapLevel), true);
+                    _3D = true;
+                    //FillWalls(realStart, realEnd);
                     break;
                 case FillMode._FILLWALLGROUND:
-                    FillGround(realStart, realEnd);
-                    FillWalls(realStart, realEnd);
+                    BuildLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, gen.currentMapLevel), true);
+                    BuildLogic(BuildRefrences.GetMiddle(realStart, realEnd, gen.mapData, gen.currentMapLevel), false);
+                    _3D = true;
+                    //FillGround(realStart, realEnd);
+                    //FillWalls(realStart, realEnd);
                     break;
                 case FillMode._FILLFULL:
-                    fillAll(realStart, realEnd);
+                    BuildLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, gen.currentMapLevel), true);
+                    BuildLogic(BuildRefrences.GetMiddle(realStart, realEnd, gen.mapData, gen.currentMapLevel), true);
+                    _3D = true;
+                    //fillAll(realStart, realEnd);
                     break;
                 default:
                     break;
@@ -203,164 +174,75 @@ public class MapEditor : MonoBehaviour
 
         }
 
-
-        MapData data;
-
         if (currentMaterial == null)
             return;
 
-        for (int i = (int)realStart.z; i <= realEnd.z; i++)
+        if (gen.mode == MapGen.Mode._DRAWING)
         {
-            for (int j = (int)realStart.x; j <= realEnd.x; j++)
+            for (int level = (int)realStart.y; level <= realEnd.y; level++)
             {
-                if (gen.mode == MapGen.Mode._DRAWING)
-                {
-                    for (int level = (int)realStart.y; level <= realEnd.y; level++)
-                    {
-                        data = gen.mapData[j, level, i];
-                        if (_Fill)
-                        {
-                            selected.Add(data);
-
-                            Material previousMaterial = MaterialManager.getMaterial(data._materialID);
-                            materials.Add(previousMaterial);
-                            data._materialID = currentMaterial.name;
-                            data.GetRender().material = currentMaterial;
-                        }
-
-                        if (_Erase)
-                        {
-                            selected.Add(gen.mapData[j, level, i]);
-
-                            Material previousMaterial = MaterialManager.getMaterial(data._materialID);
-                            materials.Add(previousMaterial);
-
-                            data._materialID = gen.filledMat.name;
-                            data.GetRender().material = gen.filledMat;
-                        }
-                    }
-
-                }
+                Debug.Log("runs");
+                DrawLogic(BuildRefrences.GetEdges(realStart, realEnd, gen.mapData, level));
+                DrawLogic(BuildRefrences.GetMiddle(realStart, realEnd, gen.mapData, level));
             }
         }
     }
-    public void NoFill(Vector3 start, Vector3 end)
+    public void BuildLogic(List<MapData> dataList, bool fill)
     {
-        MapData data;
-        for (int y = (int)start.z; y <= end.z; y++)
+        foreach (MapData _data in dataList)
         {
-            for (int x = (int)start.x; x <= end.x; x++)
+            if (!_data._selected && _Fill)
             {
-                data = gen.mapData[x, gen.currentMapLevel, y];
-                if(((x == start.x || x == end.x) || (y == start.z || y == end.z)) && _Fill && !data._selected)
-                {
-                    selected.Add(data);
-                    data.GetRender().material = gen.filledMat;
-                    data._selected = true;
-                }
+                selected.Add(_data);
+                _data.GetRender().material = gen.filledMat;
+                _data._selected = true;
 
-                if (((x == start.x || x == end.x) || (y == start.z || y == end.z)) && _Erase && data._selected)
-                {
-                    selected.Add(data);
-                    data.GetRender().material = gen.nonFilledMat;
-                    data._selected = false;
-                    Debug.Log("OwO");
-                }
+                if (fill)
+                    walls.Add(_data);
+            }
+
+            if(_data._selected && _Erase)
+            {
+                selected.Add(_data);
+                _data.GetRender().material = gen.nonFilledMat;
+                _data._selected = false;
             }
         }
-
-
     }
-    public void FillGround(Vector3 start, Vector3 end)
+    public void DrawLogic(List<MapData> dataList)
     {
-        MapData data;
-        for (int y = (int)start.z; y <= end.z; y++)
+        foreach (MapData _data in dataList)
         {
-            for (int x = (int)start.x; x <= end.x; x++)
+            if (_Fill)
             {
-                data = gen.mapData[x, gen.currentMapLevel, y];
-                if (!data._selected && _Fill)
-                {
-                     selected.Add(data);
-                     data.GetRender().material = gen.filledMat;
-                     data._selected = true;
+                selected.Add(_data);
 
-                }
-                else if (data._selected && _Erase)
-                {
-                     selected.Add(data);
-                     data.GetRender().material = gen.nonFilledMat;
-                     data._selected = false;
-                }          
+                Material previousMaterial = MaterialManager.getMaterial(_data._materialID);
+                materials.Add(previousMaterial);
+                _data._materialID = currentMaterial.name;
+                _data.GetRender().material = currentMaterial;
+            }
+
+            if (_Erase)
+            {
+                selected.Add(_data);
+
+                Material previousMaterial = MaterialManager.getMaterial(_data._materialID);
+                materials.Add(previousMaterial);
+
+                _data._materialID = gen.filledMat.name;
+                _data.GetRender().material = gen.filledMat;
             }
         }
 
-        
     }
-    public void FillWalls(Vector3 start, Vector3 end)
-    {
-        MapData data;
-        for (int y = (int)start.z; y <= end.z; y++)
-        {
-            for (int x = (int)start.x; x <= end.x; x++)
-            {
-                data = gen.mapData[x, gen.currentMapLevel, y];
-                if (((x == start.x || x == end.x) || (y == start.z || y == end.z)) && _Fill)
-                {
-                    walls.Add(data);
-                    selected.Add(data);
-                    data.GetRender().material = gen.filledMat;
-                    data._selected = true;
-                }
-
-                if (((x == start.x || x == end.x) || (y == start.z || y == end.z)) && _Erase)
-                {
-                    walls.Add(data);
-                    selected.Add(data);
-                    data.GetRender().material = gen.nonFilledMat;
-                    data._selected = false;
-                }
-            }
-        }
-        _3D = true;
-    }
-    public void fillAll(Vector3 start, Vector3 end)
-    {
-        MapData data;
-        for (int y = (int)start.z; y <= end.z; y++)
-        {
-            for (int x = (int)start.x; x <= end.x; x++)
-            {
-                data = gen.mapData[x, gen.currentMapLevel, y];
-                if (!data._selected && _Fill)
-                {
-                    selected.Add(data);
-                    data.GetRender().material = gen.filledMat;
-                    data._selected = true;
-
-                }
-                else if (data._selected && _Erase)
-                {
-                    selected.Add(data);
-                    data.GetRender().material = gen.nonFilledMat;
-                    data._selected = false;
-                }
-            }
-        }
-        _3D = true;
-    }
-
-
-
-    //This empties the list after player is done building
-    public void emptyList()
+    public void EmptySelectedTiles()
     {
         selected.Clear();
         materials.Clear();
         walls.Clear();
     }
-    //Here we reset the buildable spot prefabs
-    public void EmptyHighLight()
+    public void ResetHighLightedTiles()
     {
         if (highlightedMaps.Count > 0)
         {
@@ -388,8 +270,6 @@ public class MapEditor : MonoBehaviour
         highlightedMaps.Clear();
 
     }
-
-
     public void setColor(MapData data, Color color)
     {
         
@@ -410,9 +290,7 @@ public class MapEditor : MonoBehaviour
 
         data.GetRender().material.color = color;
     }
-
-    //Here we clear the list and remove or add the blocks if the player drags less
-    public void cancelBuild()
+    public void ResetBuilding()
     {
         for (int i = 0; i < selected.Count; i++)
         {
@@ -432,7 +310,7 @@ public class MapEditor : MonoBehaviour
         walls.Clear();
         selected.Clear();
     }
-    public void CancelDraw()
+    public void ResetDrawing()
     {
         for (int i = 0; i < materials.Count && i < selected.Count; i++)
         {
@@ -442,14 +320,10 @@ public class MapEditor : MonoBehaviour
         materials.Clear();
         selected.Clear();
     }
-
-    //This gets the material from the menu
     public void GetMaterial(Material mat)
     {
         currentMaterial = MaterialManager.SetCurrentMaterial(mat.name);
     }
-
-    //reset the currentFloor
     public void resetFloor()
     {
             for (int y = 0; y < gen.map[gen.currentMapLevel].gridSizeY; y++)
@@ -463,8 +337,6 @@ public class MapEditor : MonoBehaviour
                 }
             }
     }
-    
-    //Reset the all maps
     public void ResetAll()
     {
         for (int i = 0; i < gen.map.Count; i++)
@@ -485,31 +357,39 @@ public class MapEditor : MonoBehaviour
             }
         }
     }
+    public void HighlightTiles()
+    {
 
-    //Makes the buildable spots visible
-    public void VisualizeTiles()
-    {        
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, buildRange, tiles))
+        TileStats tile = BuildRefrences.OnTileSelect(buildRange, tiles);
+
+        if (tile == null)
         {
+            ResetHighLightedTiles();
+
+            if (!building)
+            {
+                camera2.canMove = true;
+            }
+
+            return;
+        }
+          
             //checks if camera is moving
             if (camera2.isMoving)
                 return;
 
-            //Makes sure the camera can't move if it isn't already moving
-            if (!camera2.isMoving)
-                camera2.canMove = false;
+
+            camera2.canMove = false;
 
             //Makes sure it doesn't run if nothing has changed
-            if (id == hit.collider.GetComponent<TileStats>())
+            if (id == tile)
                 return;
 
             //Empty the highlights before running the code to highlight again
-            EmptyHighLight();
+            ResetHighLightedTiles();
 
    
-            id = hit.collider.GetComponent<TileStats>();
+            id = tile;
 
             Vector3 tileID = id._ID;
             Vector3 start = new Vector3((int)tileID.x - range, tileID.y, (int)tileID.z - range);
@@ -560,18 +440,9 @@ public class MapEditor : MonoBehaviour
                     }                                        
                 }
             }
-        }
-        else
-        {
-            EmptyHighLight();
 
-            if(!building)
-            {
-                camera2.canMove = true;
-            }
-        }
     }
-    public void drawOutLine()
+    public void DrawOutline()
     {
         Color color;
 
@@ -660,6 +531,4 @@ public class MapEditor : MonoBehaviour
             _3D = false;          
         }
     }
-
-
 }

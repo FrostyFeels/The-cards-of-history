@@ -8,9 +8,6 @@ public class CharacterInfo : MonoBehaviour
     public int _Index;
     public int _Moves;
 
-    public AttackMap attackMap;
-
-
     public void SetPos(Vector3 _pos)
     {
         pos = new Vector3Int((int)_pos.x, (int)_pos.y, (int)_pos.z);

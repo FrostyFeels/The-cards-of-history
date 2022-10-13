@@ -10,8 +10,8 @@ public class Character : ScriptableObject
     public string characterDescription;
     public int health;
     public int speed;
-    public int abilitySlots;
-    public int MoveSlots;
+    public int dmg;
+    public int def;
 
     public Material mat;
 }

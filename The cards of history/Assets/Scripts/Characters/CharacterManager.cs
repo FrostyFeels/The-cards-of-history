@@ -18,6 +18,7 @@ public class CharacterManager : MonoBehaviour
 
 
     public List<GameObject> _Characters = new List<GameObject>();
+    public List<GameObject> _Enemies = new List<GameObject>();
 
     public List<MonoBehaviour> classes = new List<MonoBehaviour>();
 
@@ -32,11 +33,20 @@ public class CharacterManager : MonoBehaviour
 
     public void Start()
     {
-        spawn.setCharacters(stats.playerSpots, stats.map[0].tileSize);
+
+        spawn.SetPlayers(stats.playerSpots, stats.map[0].tileSize);
+        spawn.SetEnemies(stats.enemySpots, stats.map[0].tileSize);
+
         for (int i = 0; i < spawn._allyCharacters.Length; i++)
         {
             _Characters.Add(spawn._allyCharacters[i]);
             _Characters[i].GetComponent<CharacterInfo>().SetPos(stats.playerSpots[i]._ID);    
+        }
+
+        for (int i = 0; i < spawn._EnemyCharacters.Length; i++)
+        {
+            _Enemies.Add(spawn._EnemyCharacters[i]);
+            _Enemies[i].GetComponent<CharacterInfo>().SetPos(stats.enemySpots[i]._ID);
         }
 
         classes.Add(attack);
@@ -72,7 +82,6 @@ public class CharacterManager : MonoBehaviour
             _class.enabled = false;
         }
 
-
         switch (mode)
         {
             case Mode._Moving:
@@ -83,7 +92,6 @@ public class CharacterManager : MonoBehaviour
                 attack.enabled = true;
                 attack.NewSelect();
                 break;
-
         }
     }
 

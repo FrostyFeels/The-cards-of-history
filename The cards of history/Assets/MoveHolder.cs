@@ -26,10 +26,6 @@ public class MoveHolder : MonoBehaviour
 
     public void SetMoves()
     {
-        for (int i = 0; i < character.MoveSlots + character.abilitySlots; i++)
-        {
-
-        }
     }
 
 }
