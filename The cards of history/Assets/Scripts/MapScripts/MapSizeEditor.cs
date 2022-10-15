@@ -90,6 +90,17 @@ public class MapSizeEditor : MonoBehaviour
         {
             gen.map.Remove(gen.map[gen.map.Count - 1]);
             gen.SetArraysAfterSizeIncrease(previousGridY, previousGridX, gen.map.Count + 1);
+
+#if UNITY_EDITOR
+
+            string mapname = gen.maplevel + "." + (gen.map.Count + 1);
+
+            AssetDatabase.DeleteAsset("Assets/Map/" + gen.maplevel + "/" + mapname + ".asset")
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+#endif
         }
 
 
