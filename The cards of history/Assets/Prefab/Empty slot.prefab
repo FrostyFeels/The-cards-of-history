@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2206929729434757257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3837547590466589569}
+        m_TargetAssemblyTypeName: CharacterSlot, Assembly-CSharp
+        m_MethodName: SendCharacterData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3837547590466589569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,3 +281,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: {fileID: 5303974003519203790}
   className: {fileID: 0}
+  health: {fileID: 0}
+  dmg: {fileID: 0}
+  def: {fileID: 0}
+  speed: {fileID: 0}
+  supp: {fileID: 0}
+  stats: {fileID: 0}
+  _Stats: {fileID: 0}
+  charMaker: {fileID: 0}

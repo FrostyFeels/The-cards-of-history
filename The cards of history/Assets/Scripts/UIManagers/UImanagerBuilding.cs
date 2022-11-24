@@ -168,6 +168,8 @@ public class UImanagerBuilding : MonoBehaviour
     {
         _DrawMenu.SetActive(!_DrawMenu.activeSelf);
     }
+
+    //For increasing the size of the map
     public void SetMapChangeMode(bool increase)
     {
         if(increase)

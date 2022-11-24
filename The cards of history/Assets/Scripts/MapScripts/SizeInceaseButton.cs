@@ -18,6 +18,8 @@ public class SizeInceaseButton : MonoBehaviour
         Debug.Log((float)gen.map[0].tileSize / 5);
     }
 
+
+    //TODO: again figure out the method instead of (-1 * .5f and 1.5f * tilesize)
     public void setPositions()
     {
         if (gen == null)
@@ -25,6 +27,7 @@ public class SizeInceaseButton : MonoBehaviour
             gen = GameObject.Find("MapGenerator").GetComponent<MapGen>();
         }
 
+        //This divides the tilesize so that the ui fits nicely
         tileSize = (float)gen.map[0].tileSize / 5;
 
 

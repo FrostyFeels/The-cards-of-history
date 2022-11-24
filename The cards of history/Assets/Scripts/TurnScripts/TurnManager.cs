@@ -14,7 +14,7 @@ public class TurnManager : MonoBehaviour
     public List<GameObject> UiElements = new List<GameObject>();
     
 
-
+    //this is a protoype probally wont work with final vision
 
     public void DoTurn(int turn)
     {

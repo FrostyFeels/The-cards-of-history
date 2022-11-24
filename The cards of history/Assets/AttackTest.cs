@@ -17,6 +17,8 @@ public class AttackTest : MonoBehaviour
     public bool airAbove;
 
 
+    //AT THE MOMENT IS NOT IN USE
+
     void Start()
     {
         //maps = mapGenerator.maps;

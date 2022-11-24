@@ -8,15 +8,15 @@ public class CharacterSaveAttack : MonoBehaviour
 
     [SerializeField] private TurnManager manager;
 
-    public Renderer[] directionBlocks;
-    public GameObject directionHolder;
+    [SerializeField] private Renderer[] directionBlocks;
+    private GameObject directionHolder;
 
-    public Color defaultColor;
+    [SerializeField] private Color defaultColor;
 
     public CharacterInfo character;
 
-    public bool choosingDirection;
-    public Vector2 dir;
+    private bool choosingDirection;
+    private Vector2 dir;
 
 
 
@@ -28,6 +28,8 @@ public class CharacterSaveAttack : MonoBehaviour
             ChooseDirection();
         }
     }
+
+    //TODO: Here will be the script that holds all the information for saving the attacks
 
     public void NewSelect()
     {

@@ -16,7 +16,7 @@ public class MapSizeEditor : MonoBehaviour
     [SerializeField] private int previousGridX, previousGridY;
     public bool increase = true;
 
-    public int level;
+    private int level;
 
     public void Start()
     {
@@ -35,12 +35,13 @@ public class MapSizeEditor : MonoBehaviour
         }
     }
 
+    //Add another layer to the map
     public void IncreaseLevel()
     {
 
         SOmap map = ScriptableObject.CreateInstance<SOmap>();
 
-
+        //takes the base map so that it will stay the same x,y and tile size
         map.gridSizeX = gen.map[0].gridSizeX;
         map.gridSizeY = gen.map[0].gridSizeY;
         map.tileSize = gen.map[0].tileSize;
@@ -58,7 +59,7 @@ public class MapSizeEditor : MonoBehaviour
 
 
 
-
+        //This is the part that saves the map if you are in Unity
 #if UNITY_EDITOR
         if (AssetDatabase.IsValidFolder("Assets/Map/" + gen.maplevel))
         {
@@ -81,6 +82,8 @@ public class MapSizeEditor : MonoBehaviour
         AssetDatabase.Refresh();     
 #endif
     }
+
+    //Makes the map smaller
     public void DecreaseMap()
     {
         previousGridX = gen.map[0].gridSizeX;
@@ -95,7 +98,7 @@ public class MapSizeEditor : MonoBehaviour
 
             string mapname = gen.maplevel + "." + (gen.map.Count + 1);
 
-            AssetDatabase.DeleteAsset("Assets/Map/" + gen.maplevel + "/" + mapname + ".asset")
+            AssetDatabase.DeleteAsset("Assets/Map/" + gen.maplevel + "/" + mapname + ".asset");
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -138,6 +141,8 @@ public class MapSizeEditor : MonoBehaviour
             Application.Quit();
         }
     }
+
+    //This copies the map for refrence sake
     public void CopyMap(bool up, bool down, bool left, bool right)     
     {
         previousGridX = gen.map[gen.currentMapLevel].gridSizeX;
@@ -197,7 +202,7 @@ public class MapSizeEditor : MonoBehaviour
          gen.SetArraysAfterSizeIncrease(previousGridY, previousGridX, gen.map.Count);
     }
 
-
+    //these are all the diffrent ways you can increase the map
     public void Addcolumm(int height)
     {
         previousGridY = gen.map[height].gridSizeY;

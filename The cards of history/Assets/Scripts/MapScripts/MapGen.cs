@@ -11,7 +11,7 @@ using UnityEditor;
 public class MapGen : MonoBehaviour, ISaveable
 {
     [Header("Maps")]
-    [SerializeField] public List<SOmap> map = new List<SOmap>();
+    public List<SOmap> map = new List<SOmap>();
 
     [Header("Prefab")]
     [SerializeField] private GameObject tile;
@@ -78,8 +78,9 @@ public class MapGen : MonoBehaviour, ISaveable
 
 
 
+        //TODO: for when creating your own maps in game
 
-        if (SceneSwap._instance._NewGame)
+/*        if (SceneSwap._instance._NewGame)
         {
             map.Clear();
             NewGame();
@@ -88,7 +89,7 @@ public class MapGen : MonoBehaviour, ISaveable
         {
             map.Clear();
             LoadGame();
-        }
+        }*/
 
         //SetArrays();
 
@@ -348,6 +349,7 @@ public class MapGen : MonoBehaviour, ISaveable
     }
 
 
+    //This is how the maps get saved
     public object SaveState()
     {
 

@@ -7,23 +7,25 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject target;
 
-    [SerializeField] float distanceFromCamera;
+    [SerializeField] private float distanceFromCamera;
 
     private Vector3 previousPosition;
 
-    public float scrollSpeed;
-    public float speed;
+    [SerializeField] private float scrollSpeed;
+    [SerializeField] private float speed;
 
     public bool canMove;
     public bool isMoving;
 
     [SerializeField] private MapGen gen;
 
+    private float BuildrangeDivider;
+
     // Update is called once per frame
 
     public void Start()
     {
-        target.transform.position = new Vector3(gen.map[0].gridSizeX, gen.mapEditor.buildRange / 100, -gen.map[0].gridSizeY);
+        target.transform.position = new Vector3(gen.map[0].gridSizeX, gen.mapEditor.buildRange / BuildrangeDivider, -gen.map[0].gridSizeY);
     }
     void Update()
     {
@@ -34,7 +36,7 @@ public class CameraController : MonoBehaviour
 
         if(canMove)
         {
-            doCameraThingy();
+            CameraRotation();
         }
         else
         {
@@ -62,7 +64,8 @@ public class CameraController : MonoBehaviour
     }
 
 
-    public void doCameraThingy()
+    //Rotates te camera so you can move around the map
+    public void CameraRotation()
     {
         if (Input.GetMouseButtonDown(0))
         {

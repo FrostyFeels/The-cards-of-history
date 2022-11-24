@@ -7,6 +7,8 @@ public class AllyMovement : MonoBehaviour
     [SerializeField] private TurnManager turnManager;
     [SerializeField] private MapStats stats;
 
+
+    //Starts the path of the first move turn then starts the next turn when done
     public IEnumerator StartPath(List<Vector3> path, int nodeIndex, GameObject character, int turnCount)
     {
         int tilesize = stats.map[0].tileSize;
@@ -25,6 +27,8 @@ public class AllyMovement : MonoBehaviour
             turnManager.turns.Clear();
         }
     }
+
+    //Moves the character one node then rerunning it with the next index
     public IEnumerator Move(List<Vector3> path, int nodeIndex, GameObject character, int tilesize)
     {
         Vector3 _RealStart = Vector3.zero;

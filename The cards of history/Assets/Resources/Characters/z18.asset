@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75e0ab6aae881441b19180d81496f82, type: 3}
+  m_Name: z18
+  m_EditorClassIdentifier: 
+  characterID: 0
+  characterName: zzzz
+  _class: 0
+  health: 0
+  speed: 0
+  dmg_buff: 0
+  def_buff: 0
+  supp_buff: 0
+  skillPoints: 5
+  mat: {fileID: 0}
+  filled: 0

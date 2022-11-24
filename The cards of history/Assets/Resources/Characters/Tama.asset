@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Tama
   m_EditorClassIdentifier: 
   characterID: 1
-  characterName: Tama
-  characterDescription: Tank
+  characterName: zzzz
+  _class: 2
   health: 200
-  speed: 4
-  abilitySlots: 3
-  MoveSlots: 1
+  speed: 0
+  dmg_buff: 0
+  def_buff: 0
+  supp_buff: 0
+  skillPoints: 5
+  mat: {fileID: 0}
+  filled: 0

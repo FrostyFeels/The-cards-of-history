@@ -24,6 +24,8 @@ public class UIManagerMainMenu : MonoBehaviour
         _ActiveMenu = menu;
     }
 
+
+    //Makes a new map
     public void MakeNewMap()
     {
         SceneSwap.Map map = SceneSwap._instance.map;

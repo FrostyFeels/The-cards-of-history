@@ -11,23 +11,25 @@ public class CharacterPathLogic : MonoBehaviour
     [SerializeField] private LayerMask tileMask;
 
     [SerializeField] private CameraMovement cam;
-    [SerializeField] public LineRenderer line;
+    [SerializeField] private LineRenderer line;
 
     [SerializeField] private MapStats stats;
 
     [SerializeField] private CharacterManager _CharMan;
     public CharacterInfo selected;
 
-    public bool setPath = false;
-    public bool settingPath = false;
+    private bool setPath = false;
+    private bool settingPath = false;
 
-    public List<MapData> _RangeTiles = new List<MapData>();
-    public List<MapData> _ColorPath = new List<MapData>();
+    [SerializeField] private List<MapData> _RangeTiles = new List<MapData>();
+    [SerializeField] private List<MapData> _ColorPath = new List<MapData>();
 
-    public PathData[] pathHolder;
+    [SerializeField] private PathData[] pathHolder;
 
 
-    public TurnManager turn;
+    [SerializeField] private TurnManager turn;
+
+    private int camToMouseRange = 200;
 
     public void Start()
     {
@@ -87,6 +89,7 @@ public class CharacterPathLogic : MonoBehaviour
         }
     }
 
+    //Sets a new path
     public void NewPath()
     {
         line.enabled = true;
@@ -97,6 +100,8 @@ public class CharacterPathLogic : MonoBehaviour
         RemoveRangeColors();
         ColorRange(selected.pos.y);
     }
+
+    //Runs while your dragging the path
     public void DragPath()
     {
         if (selected == null)
@@ -105,7 +110,7 @@ public class CharacterPathLogic : MonoBehaviour
         
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 200, tileMask))
+        if (Physics.Raycast(ray, out hit, camToMouseRange, tileMask))
         {
             if(!cam.isMoving)
             {
@@ -122,11 +127,14 @@ public class CharacterPathLogic : MonoBehaviour
                 return;
             }
 
+            
+            //Checks if the tile that is selected is actually inside of the range of the previous tile
             if (Vector2.Distance(new Vector2(tile.x,tile.z), new Vector2(curTile.x, curTile.z)) > 1)
             {
                 return;
             }
 
+            //check if the tile selected was the last tile
             if (tile == lastTile)
             {
                 path.RemoveAt(path.Count - 1);
@@ -142,6 +150,8 @@ public class CharacterPathLogic : MonoBehaviour
                 return;
             }
 
+
+            //checks if the max amount of path has been sleected
             if (selected._Moves + 1 <= path.Count)
                 return;
                     
@@ -157,6 +167,8 @@ public class CharacterPathLogic : MonoBehaviour
 
     
     }
+
+    //Draws the lines
     public void SetLinePositions(List<Vector3> _path)
     {
         line.positionCount = _path.Count;
@@ -172,6 +184,8 @@ public class CharacterPathLogic : MonoBehaviour
         line.SetPositions(linePos);
         ColorPath();
     }
+
+    //sets the path to be used when its turn happens
     public void SetPath()
     {       
         Vector3 _pos = path[path.Count - 1];
@@ -202,6 +216,8 @@ public class CharacterPathLogic : MonoBehaviour
         RemovePathColors();
         RemoveRangeColors();
     }
+
+    //Removes the saved path
     public void ResetPath()
     {
         path.Clear();
@@ -209,6 +225,7 @@ public class CharacterPathLogic : MonoBehaviour
         pathHolder[selected._Index].path.Clear();
         pathHolder[selected._Index].lastTile._stoodOn = false;
     }
+    //makes all the characters move
     public void StartPath()
     {
         if(turn.turns.Count > 0)
@@ -216,6 +233,8 @@ public class CharacterPathLogic : MonoBehaviour
             turn.DoTurn(0);
         }
     }
+
+    //Removes the colors indicating range
     public void RemoveRangeColors()
     {
         foreach (MapData _Tile in _RangeTiles)
@@ -225,6 +244,8 @@ public class CharacterPathLogic : MonoBehaviour
 
         _RangeTiles.Clear();
     }
+
+    //removes the colors that indiciate what path will happen
     public void RemovePathColors()
     {
         foreach (MapData _Tile in _ColorPath)
@@ -238,6 +259,8 @@ public class CharacterPathLogic : MonoBehaviour
 
         _ColorPath.Clear();
     }
+
+    //Colors all the tiles that the character can move too
     public void ColorRange(int height)
     {
         Vector3Int middle = selected.pos;
@@ -297,6 +320,8 @@ public class CharacterPathLogic : MonoBehaviour
             }
         }
     }  
+
+    //Actually colors each tile
     public void ColorPath()
     {
         foreach (MapData _Tile in _ColorPath)
@@ -306,6 +331,7 @@ public class CharacterPathLogic : MonoBehaviour
     }  
 }
 
+//This holds all the data for the paths
 public class PathData
 {
     public List<Vector3> path;

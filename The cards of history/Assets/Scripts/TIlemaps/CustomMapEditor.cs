@@ -14,10 +14,7 @@ public class CustomMapEditor : Editor
     Color onColor = Color.green;
     Color offColor = Color.grey;
 
-    [SerializeField]
-    int row = 5;
-    [SerializeField]
-    int colum = 5;
+
 
     [SerializeField]
     Vector2 start, end;

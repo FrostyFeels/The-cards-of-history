@@ -5,22 +5,25 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
 
-    public CharacterSaveAttack attack;
-    public CharacterSpawn spawn;
-    public CharacterPathLogic pathLogic;
-    public CharacterInfo character;
+    [SerializeField] private CharacterSaveAttack attack;
+    [SerializeField] private CharacterSpawn spawn;
+    [SerializeField] private CharacterPathLogic pathLogic;
+    [SerializeField] private CharacterInfo character;
 
     [SerializeField] private LayerMask charMask;
 
 
- 
-    public MapStats stats;
+
+    [SerializeField] private MapStats stats;
 
 
-    public List<GameObject> _Characters = new List<GameObject>();
-    public List<GameObject> _Enemies = new List<GameObject>();
+    [SerializeField] private List<GameObject> _Characters = new List<GameObject>();
+    [SerializeField] private List<GameObject> _Enemies = new List<GameObject>();
 
-    public List<MonoBehaviour> classes = new List<MonoBehaviour>();
+    //diffrent scripts
+    [SerializeField] private List<MonoBehaviour> classes = new List<MonoBehaviour>();
+
+    private int camToMouseRange = 200;
 
 
     public enum Mode
@@ -30,6 +33,10 @@ public class CharacterManager : MonoBehaviour
     }
 
     public Mode mode;
+
+
+
+    //This is the manager for the diffrent character parts like setting up the player and enemies how their walk logic works and how their saving of attacks work
 
     public void Start()
     {
@@ -60,11 +67,13 @@ public class CharacterManager : MonoBehaviour
             SelectChar();
         }         
     }
+
+    //For selecting a character while its your turn
     public void SelectChar()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 200 , charMask))
+        if (Physics.Raycast(ray, out hit, camToMouseRange, charMask))
         {
             if(hit.collider.CompareTag("Player"))
             {
@@ -75,6 +84,8 @@ public class CharacterManager : MonoBehaviour
             }
         }
     }
+
+    //Changing the mode to what mode it needs to be while disabling the other scripts
     public void ModeLogic()
     {
         foreach (MonoBehaviour _class in classes)

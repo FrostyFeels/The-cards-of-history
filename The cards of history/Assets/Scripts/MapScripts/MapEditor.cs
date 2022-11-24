@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class MapEditor : MonoBehaviour
 {
     [SerializeField] private MapGen gen;
-    public Vector3 startTile, endTile;
+    private Vector3 startTile, endTile;
 
-    public Material currentMaterial;
+    [SerializeField] private Material currentMaterial;
 
-    public CameraController camera2;
+    [SerializeField] private CameraController camera2;
 
 
     public List<Material> materials = new List<Material>();
@@ -22,7 +22,7 @@ public class MapEditor : MonoBehaviour
 
     public List<MapData> walls = new List<MapData>();
 
-    public bool firstTile;
+    private bool firstTile;
     public bool _Fill;
     public bool _Erase;
     public bool _3D;
@@ -30,12 +30,12 @@ public class MapEditor : MonoBehaviour
     public bool _ChoosingHeight;
     public bool finishHeight;
     public bool clickedHeight;
-    public int range;
+    private int range;
 
-    public TileStats id;
-    public float colorFallOff;
+    private TileStats id;
+    [SerializeField] private float colorFallOff;
 
-    public float edgeColor, fillColor, fullColor;
+    [SerializeField] private float edgeColor, fillColor, fullColor;
 
     [SerializeField] private LayerMask tiles;
 
@@ -102,8 +102,11 @@ public class MapEditor : MonoBehaviour
         HighlightTiles();
     }
 
+
+    //Selects the tile
     public void MapSelecter()
     {
+        //Runs the code for an raycast to see which tile is selected
         TileStats tile = BuildRefrences.OnTileSelect(buildRange, tiles);
 
         if (tile == null)
@@ -129,6 +132,8 @@ public class MapEditor : MonoBehaviour
         endTile = tile._ID;
         MapBuilder();
     }
+
+    //calls the diffrent functions to fill the map
     public void MapBuilder()
     {
         Vector3[] startEnd = BuildRefrences.GetStart(startTile, endTile);
@@ -136,7 +141,7 @@ public class MapEditor : MonoBehaviour
         Vector3 realStart = startEnd[0];
         Vector3 realEnd = startEnd[1];
 
-
+        //Switch statement that calls buildrefrences(which holds the diffrent ways of building the map
         if (gen.mode == MapGen.Mode._BUILDING)
         {
             switch (mode)
@@ -187,6 +192,8 @@ public class MapEditor : MonoBehaviour
             }
         }
     }
+
+    //fills or erases the map nodes based on fill or erase bool
     public void BuildLogic(List<MapData> dataList, bool fill)
     {
         foreach (MapData _data in dataList)
@@ -209,6 +216,8 @@ public class MapEditor : MonoBehaviour
             }
         }
     }
+
+    //Draws or undraws the map nodes based on fill or erase bool
     public void DrawLogic(List<MapData> dataList)
     {
         foreach (MapData _data in dataList)
@@ -236,12 +245,16 @@ public class MapEditor : MonoBehaviour
         }
 
     }
+
+    //clears the list with tiles selected
     public void EmptySelectedTiles()
     {
         selected.Clear();
         materials.Clear();
         walls.Clear();
     }
+
+    //clears the tiles highlighted
     public void ResetHighLightedTiles()
     {
         if (highlightedMaps.Count > 0)
@@ -270,6 +283,8 @@ public class MapEditor : MonoBehaviour
         highlightedMaps.Clear();
 
     }
+
+    //Sets the color of the tile
     public void setColor(MapData data, Color color)
     {
         
@@ -290,6 +305,8 @@ public class MapEditor : MonoBehaviour
 
         data.GetRender().material.color = color;
     }
+
+    //erases or fills based on fill or erase bool
     public void ResetBuilding()
     {
         for (int i = 0; i < selected.Count; i++)
@@ -310,6 +327,7 @@ public class MapEditor : MonoBehaviour
         walls.Clear();
         selected.Clear();
     }
+    //Undraws or draws based on fill or erase bool
     public void ResetDrawing()
     {
         for (int i = 0; i < materials.Count && i < selected.Count; i++)
@@ -320,10 +338,14 @@ public class MapEditor : MonoBehaviour
         materials.Clear();
         selected.Clear();
     }
+
+    //Gets the material currently Useless
     public void GetMaterial(Material mat)
     {
         currentMaterial = MaterialManager.SetCurrentMaterial(mat.name);
     }
+
+    //Removes the current floor from the map
     public void resetFloor()
     {
             for (int y = 0; y < gen.map[gen.currentMapLevel].gridSizeY; y++)
@@ -337,6 +359,8 @@ public class MapEditor : MonoBehaviour
                 }
             }
     }
+    
+    //Removes the entire build
     public void ResetAll()
     {
         for (int i = 0; i < gen.map.Count; i++)
@@ -357,6 +381,8 @@ public class MapEditor : MonoBehaviour
             }
         }
     }
+
+    //Highlights tiles to see what you can select
     public void HighlightTiles()
     {
 
@@ -442,6 +468,8 @@ public class MapEditor : MonoBehaviour
             }
 
     }
+
+    //The edges of how far you can build
     public void DrawOutline()
     {
         Color color;
@@ -469,6 +497,8 @@ public class MapEditor : MonoBehaviour
             }
         }
     }
+
+    //Draws the height for 3D map making
     public void DrawHeight()
     {
         Color color = gen.nonFilledMat.color;
@@ -481,6 +511,8 @@ public class MapEditor : MonoBehaviour
 
         finishHeight = true;
     }
+
+    //Fills the height
     public void fillHeight()
     {
         Color color = gen.nonFilledMat.color;

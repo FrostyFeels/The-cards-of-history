@@ -37,7 +37,7 @@ public class SOmap : ScriptableObject
 }
 
 
-
+//I can't save gameobjects or renderes so theyre excluded when saving MapData
 [Serializable]
 public class MapData
 {

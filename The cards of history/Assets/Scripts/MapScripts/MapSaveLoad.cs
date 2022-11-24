@@ -22,6 +22,8 @@ public class MapSaveLoad : MonoBehaviour
         SaveFile(state);
     }
 
+    //TODO rewatch the video to understand how exactly it works
+
     [ContextMenu("Load")]
     public void Load(string s)
     {

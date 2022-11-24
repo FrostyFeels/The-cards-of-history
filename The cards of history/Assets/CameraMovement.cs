@@ -7,19 +7,19 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private GameObject target;
 
-    [SerializeField] float distanceFromCamera;
+    [SerializeField] private float distanceFromCamera;
 
     private Vector3 previousPosition;
 
-    public float scrollSpeed;
-    public float speed;
+    [SerializeField] private float scrollSpeed;
+    [SerializeField] private float speed;
 
     public bool canMove;
     public bool isMoving;
 
     [SerializeField] private MapStats map;
 
-    public CharacterPathLogic pathlogic;
+    [SerializeField] private CharacterPathLogic pathlogic;
 
     public Transform rotateobject;
 
@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour
 
         if(canMove || !pathlogic.enabled)
         {
-            doCameraThingy();
+            CameraRotation();
         }
         else
         {
@@ -106,7 +106,7 @@ public class CameraMovement : MonoBehaviour
     } 
 
 
-    public void doCameraThingy()
+    public void CameraRotation()
     {
 
         distanceFromCamera += Input.mouseScrollDelta.y;
