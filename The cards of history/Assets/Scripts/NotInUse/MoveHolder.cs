@@ -8,6 +8,8 @@ public class MoveHolder : MonoBehaviour
     public Transform[] moveSpots;
     public Transform _camera;
 
+
+    //NOT IN USE RIGHT NOW
     public void Start()
     {
         SetMoves();

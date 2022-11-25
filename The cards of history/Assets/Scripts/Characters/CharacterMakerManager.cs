@@ -7,19 +7,19 @@ using TMPro;
 public class CharacterMakerManager : MonoBehaviour
 {
     //Number of characters on the screen
-    public int maxCharacters = 25;
+    [SerializeField] private int maxCharacters = 25;
 
     [Header("Characters")]
     public Character curChar;
     public Character copyChar;
 
     [Header("Prefabs")]
-    public GameObject filledSlot;
-    public GameObject emptySlot;
+    [SerializeField] private GameObject filledSlot;
+    [SerializeField] private GameObject emptySlot;
 
-    public GameObject contentHolder;
+    [SerializeField] private GameObject contentHolder;
     public List<Character> characters = new List<Character>();
-   
+
 
 
     public GameObject charSelectPanel;
@@ -33,10 +33,10 @@ public class CharacterMakerManager : MonoBehaviour
     public TMP_InputField charName;
     public TextMeshProUGUI skillpoints;
 
-    public Image agile;
-    public Image gunner;
-    public Image tank;
-    public Image psychic;
+    [SerializeField] private Image agile;
+    [SerializeField] private Image gunner;
+    [SerializeField] private Image tank;
+    [SerializeField] private Image psychic;
 
 
     public FillCharacterSlot fillSlot;

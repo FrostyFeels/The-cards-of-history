@@ -22,6 +22,9 @@ public class MapStats : MonoBehaviour
         }
     }
 
+
+    //List are saveable but a 3D array is needed to access movement easier
+    //Turns the saved list into a 3D array at startup
     public void ListTo3DArray()
     {
         TileStats[] _Tiles = GetComponentsInChildren<TileStats>();
